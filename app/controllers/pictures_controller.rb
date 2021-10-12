@@ -19,7 +19,6 @@ class PicturesController < ApplicationController
 
   def edit
   end
-
   def create
     @picture = current_user.pictures.build(picture_params)
     if params[:back]
@@ -61,8 +60,6 @@ class PicturesController < ApplicationController
     def set_picture
       @picture = Picture.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
     def picture_params
       params.require(:picture).permit(:content, :image, :image_cache)
     end
